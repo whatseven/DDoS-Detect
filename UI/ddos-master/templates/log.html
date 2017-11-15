@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>DDOS-检测中心</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/log.css">
+
+    <script src="assets/js/chart-master/Chart.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.5.2/echarts.common.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('.thispart').addClass('active');
+
+  })
+  </script>
+  <style media="screen">
+      .security-right{
+          background: #fff none repeat scroll 0 0;
+          border-left: 1px solid #ddd;
+          box-sizing: border-box;
+          float: left;
+          min-height: 536px;
+          padding-bottom: 100px;
+          position: relative;
+          width: 1030px;
+      }
+      .sr-t {
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    padding-left: 30px;
+}
+.tit-b {
+    background-color: #00a1d6;
+    border-radius: 4px;
+    height: 16px;
+    margin-top: 16px;
+    width: 4px;
+}
+.acc-sec {
+    color: #00a1d6;
+    cursor: default;
+    font-size: 14px;
+    margin: 15px 0 0 5px;
+}
+.sr-b {
+    padding: 20px 20px 0;
+}
+.sb-line {
+    border-top: 1px solid #ddd;
+    margin-top: 45px;
+    width: 100%;
+}
+.sb-save {
+    background: #00a0d8 none repeat scroll 0 0;
+    border-radius: 3px;
+    bottom: 35px;
+    color: #fff;
+    height: 35px;
+    left: 375px;
+    letter-spacing: 0.5em;
+    line-height: 35px;
+    position: absolute;
+    text-align: center;
+    width: 110px;
+}
+.e{
+    margin-top: 0 !important;
+    top:0 !important;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.fileUpload input.upload {  position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+  </style>
+
+  <body>
+
+  <section id="container" >
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="index.html" class="logo"><b>Manager</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">Logout</a></li>
+            	</ul>
+            </div>
+        </header>
+      <!--header end-->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+
+              	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">Manager</h5>
+
+                  <li class="sub-menu">
+                          <a class="" href="javascript:;">
+                              <i class="fa fa-dashboard"></i>
+                              <span>总览</span>
+                          </a>
+                      <ul class="sub">
+                          <li id="thruput"><a  href="thruput.html">吞吐量</a></li>
+                          <li id="analysis"><a  href="analysis.html">流量分析</a></li>
+                          <!-- <li><a  href="panels.html">Panels</a></li> -->
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>外源DDOS</span>
+                      </a>
+                      <ul class="sub">
+                          <li id="status"><a  href="status.html">当前状态</a></li>
+                          <li id="threaten"><a  href="threaten.html">威胁列表</a></li>
+                          <li id="map"><a  href="map.html">地图</a></li>
+                          <!-- <li><a  href="panels.html">Panels</a></li> -->
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="innerDdos.html" >
+                          <i class="fa fa-cogs"></i>
+                          <span>內源DDOS</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="log.html" class="thispart">
+                          <i class="fa fa-book"></i>
+                          <span>控制台</span>
+                      </a>
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <form onsubmit="return false;">
+              	<div class="security-right">
+              		<div class="sr-t">
+              			<span class="tit-b"></span>
+              			<span class="acc-sec">我的信息</span>
+              		</div>
+              		<div class="sr-b">
+              			<ul>
+              				<li>
+              					<div class="sb-info">
+              						<p class="sbi-l" id="username">当前用户</p>
+                                    <div class="sbi-m">
+              							<span>
+              								<input class="user-id" name="uname" value="小王" type="text">
+              							</span>
+              						</div>
+              						<div class="sbi-m">
+              							<p></p>
+              						</div>
+              					</div>
+              				</li>
+                            <li>
+              					<div class="sb-info">
+              						<a class="sbi-l" href="userProfit.html">权限管理</a>
+              						<a class="sbi-l" href="login.html">切换用户</a>
+                                    <a class="sbi-l" href="register.html">增加用户</a>
+              					</div>
+              				</li>
+                            <hr style="margin-bottom:20px">
+
+                            <li>
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="">上传训练文件：</p>
+                                    <div class="sbi-m">
+                                        <span>
+
+                                            <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+                                            <div class="fileUpload btn btn-primary">
+                                                <span>Upload</span>
+                                                <input id="uploadBtn" type="file" class="upload" />
+                                            </div>
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="">恢复训练文件：</p>
+                                    <div class="sbi-m">
+                                        <span>
+                                            <a class="button button-royal button-pill button-giant">Recover</a>
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="">获取训练文件：</p>
+                                    <div class="sbi-m">
+                                        <span>
+                                            <a class="button button-royal button-pill button-giant">Get</a>
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <hr style="margin-bottom:20px">
+                            <li>
+                                <div class="sb-info">
+                                    <a class="sbi-l" id="email">告警邮箱设置  +</a>
+
+                                </div>
+                                <table id="userEmailTable" class="table" style="display:none">
+                                    <caption></caption>
+                                    <thead>
+                                        <tr>
+                                            <th>当前邮箱列表</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="float:left;display:inline-block">David@163.com  <p style="color:blue;display:inline-block;margin-left:20px">删除用户</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="float:left;display:inline-block">Mrwang@163.com   <p style="color:blue;display:inline-block;margin-left:20px">删除用户</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="float:left;display:inline-block">test55385@163.com   <p style="color:blue;display:inline-block;margin-left:20px">删除用户</p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+
+                            <li>
+                                <div class="sb-info">
+                                    <a class="sbi-l" id="userManager">用户管理  +</a>
+                                </div>
+                                <table id="userManagerTable" class="table" style="display:none">
+                                    <caption></caption>
+                                    <thead>
+                                        <tr>
+                                            <th>现有用户</th>
+                                            <th>最后登录</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="float:left;display:inline-block">David  <p style="color:blue;display:inline-block;margin-left:20px">删除用户</p></td>
+                                            <td>2017-4-28</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="float:left;display:inline-block">Mr.wang  <p style="color:blue;display:inline-block;margin-left:20px">删除用户</p></td>
+                                            <td>2017-5-5</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="float:left;display:inline-block">test  <p style="color:blue;display:inline-block;margin-left:20px">删除用户</p></td>
+                                            <td>2017-5-15</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+              				<li>
+              					<div class="sb-info">
+
+              					</div>
+              				</li>
+
+              			</ul>
+              		</div>
+              		<div class="sb-line"></div>
+
+              	</div>
+
+              </form>
+
+          </section>
+      </section>
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+              2017 - ddos-project
+              <a href="index.html#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/check.js"></script>
+
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery-1.8.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.sparkline.js"></script>
+
+
+    <!--common script for all pages-->
+    <script src="assets/js/common-scripts.js"></script>
+
+    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+
+    <!--script for this page-->
+    <script src="assets/js/sparkline-chart.js"></script>
+	<script src="assets/js/zabuto_calendar.js"></script>
+
+
+	<script type="application/javascript">
+        $(document).ready(function () {
+            $("#date-popover").popover({html: true, trigger: "manual"});
+            $("#date-popover").hide();
+            $("#date-popover").click(function (e) {
+                $(this).hide();
+            });
+
+            $("#my-calendar").zabuto_calendar({
+                action: function () {
+                    return myDateFunction(this.id, false);
+                },
+                action_nav: function () {
+                    return myNavFunction(this.id);
+                },
+                ajax: {
+                    url: "show_data.php?action=1",
+                    modal: true
+                },
+                legend: [
+                    {type: "text", label: "Special event", badge: "00"},
+                    {type: "block", label: "Regular event", }
+                ]
+            });
+        });
+
+
+        function myNavFunction(id) {
+            $("#date-popover").hide();
+            var nav = $("#" + id).data("navigation");
+            var to = $("#" + id).data("to");
+            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+    </script>
+
+  </body>
+<script type="text/javascript" src="js/log.js"></script>
+
+</html>
